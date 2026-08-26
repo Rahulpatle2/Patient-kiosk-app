@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View, Pressable, Image, ScrollView } from 'react-native'
 import React from 'react'
+import QRCode from 'react-native-qrcode-svg'
 
 // Fallback Doctor Image
 const DEFAULT_DOCTOR_IMAGE = 'https://cdn-icons-png.flaticon.com/512/3774/3774299.png'
@@ -40,6 +41,15 @@ export default function AppointmentConfirmedScreen({ navigation, route }) {
   const doctorDept = opdInfo?.department || (typeof department === 'object' ? department?.name || department?.Department : department) || 'General'
   const doctorQual = doctor?.degree || doctor?.qualification || doctor?.Designation || 'Consultant'
   const doctorImage = doctor?.photo ? { uri: doctor.photo } : (typeof doctor?.photo === 'number' ? doctor.photo : { uri: DEFAULT_DOCTOR_IMAGE })
+
+  // ─── QR Code mein jo data jayega ────────────────────────────
+  const qrValue = JSON.stringify({
+    opEncounterId: opdInfo?.opEncounterId,
+    patientId: opdInfo?.patientId,
+    doctor: doctorName,
+    department: doctorDept,
+    tokenNo: opdInfo?.tokenNo,
+  })
 
   // ─── Handlers ─────────────────────────────────────────────
   const handleFinish = () => {
@@ -188,7 +198,12 @@ export default function AppointmentConfirmedScreen({ navigation, route }) {
               {/* QR Code */}
               <View style={styles.qrBox}>
                 <Text style={styles.qrTitle}>Show this QR code at the reception</Text>
-                <Image style={{ width: 150, height: 150 }} source={require('../assets/Qr Code (1).png')} resizeMode="contain" />
+                <QRCode
+                  value={qrValue}
+                  size={150}
+                  color="#001532"
+                  backgroundColor="#ffffff"
+                />
               </View>
 
               {/* What's Next */}
@@ -281,7 +296,6 @@ export default function AppointmentConfirmedScreen({ navigation, route }) {
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#ffffff' },
 
-  // Header
   header: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingHorizontal: 40, paddingVertical: 2 },
   headerLeft: { width: '20%' },
   backButton: { flexDirection: 'row', alignItems: 'center' },
@@ -291,10 +305,8 @@ const styles = StyleSheet.create({
   secureIcon: { width: 20, height: 20 },
   secureText: { fontSize: 16, fontWeight: '500', color: '#485260' },
 
-  // Body
   body: { flex: 1, flexDirection: 'row', paddingHorizontal: 20, paddingVertical: 0, gap: 16 },
 
-  // Sidebar
   sidebar: { width: 'auto', paddingVertical: 20, paddingHorizontal: 16, backgroundColor: '#F9FFFF', borderRadius: 16, borderWidth: 1, borderColor: '#00A4A420', gap: 30 },
   sidebarTitle: { fontSize: 14, fontWeight: '700', color: '#001532', marginBottom: 12 },
   stepRow: { flexDirection: 'row', alignItems: 'center', gap: 10, position: 'relative', paddingVertical: 6 },
@@ -315,20 +327,16 @@ const styles = StyleSheet.create({
   needHelpSidebarText: { fontSize: 18, fontWeight: '700', color: '#001532' },
   needHelpSidebarSub:  { fontSize: 16, color: '#737373' },
 
-  // Main Content
   mainContent: { flex: 1, paddingHorizontal: 60 },
   mainContentInner: { gap: 20, paddingBottom: 20 },
 
-  // Confirmed Heading
   confirmedHeading: { flexDirection: 'row', alignItems: 'center', gap: 12 },
   confirmedIcon:    { width: 40, height: 40 },
   confirmedTitle:   { fontSize: 28, fontWeight: '700', color: '#001532' },
   confirmedSubtitle:{ fontSize: 14, fontWeight: '400', color: '#485260' },
 
-  // Info + QR Row
   infoQrRow: { flexDirection: 'row', gap: 16 },
 
-  // Info Cards
   infoCards: { flex: 1, gap: 12, width: '50%', paddingRight: 80 },
   infoCard: {
     flexDirection: 'row',
@@ -350,21 +358,17 @@ const styles = StyleSheet.create({
   doctorSpecialty:{ fontSize: 14, fontWeight: '600', color: '#00A4A4' },
   doctorQual:    { fontSize: 12, color: '#737373' },
 
-  // Right Column
   rightCol: { flex: 1, width: 280, gap: 16 },
 
-  // QR Box
   qrBox: { borderWidth: 1, borderColor: '#73737326', borderRadius: 12, padding: 16, alignItems: 'center', gap: 12, backgroundColor: '#F9FFFF' },
   qrTitle: { fontSize: 13, fontWeight: '500', color: '#485260', textAlign: 'center' },
 
-  // What's Next
   whatsNextBox: { borderWidth: 1, borderColor: '#00A4A440', borderRadius: 12, padding: 16, backgroundColor: '#F9FFFF', gap: 8 },
   whatsNextHeader: { flexDirection: 'row', alignItems: 'center', gap: 8 },
   whatsNextIcon:   { width: 20, height: 20 },
   whatsNextTitle:  { fontSize: 15, fontWeight: '700', color: '#001532' },
   whatsNextText:   { fontSize: 13, fontWeight: '400', color: '#485260', lineHeight: 20 },
 
-  // Action Buttons
   actionsRow: { flexDirection: 'row', gap: 16 },
   actionBtn: {
     flex: 1,
@@ -381,14 +385,12 @@ const styles = StyleSheet.create({
   actionText: { fontSize: 14, fontWeight: '700', color: '#001532' },
   actionSub:  { fontSize: 12, color: '#737373' },
 
-  // Bottom Row
   bottomRow: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
   cancelText: { fontSize: 14, fontWeight: '500', color: '#A11D1D' },
   finishButton: { flexDirection: 'row', alignItems: 'center', gap: 8, backgroundColor: '#00A4A4', borderRadius: 10, paddingVertical: 14, paddingHorizontal: 32 },
   finishIcon:   { width: 20, height: 20 },
   finishButtonText: { fontSize: 16, fontWeight: '700', color: '#ffffff' },
 
-  // Footer
   footer: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingHorizontal: 40, paddingVertical: 0 },
   footerLeft: { flexDirection: 'row', alignItems: 'center', gap: 30 },
   footerLangActive: { flexDirection: 'row', alignItems: 'center', columnGap: 6 },
