@@ -1,0 +1,152 @@
+{
+  "common": {
+    "back": "Back",
+    "next": "Next",
+    "secure_badge": "Secure • Private • Trusted",
+    "need_help": "Need Help?",
+    "tap_for_assistance": "Tap for assistance",
+    "english": "English",
+    "hindi": "हिंदी",
+    "marathi": "मराठी",
+    "cancel_registration": "Cancel Registration",
+    "save_and_continue": "Save & Continue"
+  },
+
+  "registration_progress": {
+    "title": "Registration Progress",
+    "mobile_number": "Mobile Number",
+    "verification": "Verification",
+    "verified_successfully": "Verified Successfully",
+    "patient_information": "Patient Information",
+    "please_provide_details": "Please provide your details",
+    "details_saved": "Details Saved",
+    "department_selection": "Department Selection",
+    "select_your_department": "Select your department",
+    "department_selected": "Department Selected",
+    "doctor_selection": "Doctor Selection",
+    "choose_your_doctor": "Choose your doctor",
+    "doctor_selected": "Doctor Selected",
+    "confirmation": "Confirmation",
+    "review_and_confirm": "Review & Confirm"
+  },
+
+  "welcome": {
+    "title": "Welcome to",
+    "hospital_name": "Balaji Lifecare",
+    "subtitle": "Fast Patient Registration",
+    "register_new_patient": "Register",
+    "register_new_patient_sub": "New Patient",
+    "existing_patient": "Existing",
+    "existing_patient_sub": "Patient",
+    "scan_qr": "Scan",
+    "scan_qr_sub": "Appointment QR"
+  },
+
+  "verify_mobile": {
+    "title_line1": "Let's verify your",
+    "title_highlight": "mobile number",
+    "subtitle": "Enter your 10-digit mobile number to continue",
+    "placeholder": "Enter mobile number",
+    "send_otp": "Send OTP"
+  },
+
+  "verify_otp": {
+    "title": "Verify OTP",
+    "subtitle": "Enter the 6-digit OTP sent to",
+    "auto_submit": "OTP will auto-submit in",
+    "didnt_receive": "Didn't receive the OTP?",
+    "resend_otp": "Resend OTP",
+    "having_trouble": "Having trouble?",
+    "get_call_otp": "Get OTP on call",
+    "verification_secure": "Your verification is secure"
+  },
+
+  "patient_info": {
+    "title": "Patient Information",
+    "subtitle": "Please provide accurate details for seamless registration.",
+    "full_name": "Full Name",
+    "first_name": "First Name",
+    "middle_name": "Middle Name",
+    "last_name": "Last Name",
+    "gender": "Gender",
+    "male": "Male",
+    "female": "Female",
+    "other": "Other",
+    "date_of_birth": "Date of Birth",
+    "dob_placeholder": "DD/MM/YYYY",
+    "email": "Email",
+    "email_placeholder": "Enter your email",
+    "address": "Address",
+    "house_no": "House No., Building, Street",
+    "landmark": "Landmark (Optional)",
+    "city": "City / District",
+    "state": "State",
+    "pin_code": "PIN Code",
+    "emergency_contact": "Emergency Contact",
+    "emergency_name": "Name",
+    "emergency_mobile": "Mobile Number",
+    "data_safe_title": "Your Data is safe with us",
+    "data_safe_subtitle": "We comply with national data protection standards.",
+    "quick_fill": "Quick Fill Options",
+    "scan_aadhaar": "Scan Aadhaar",
+    "scan_aadhaar_sub": "From Aadhaar",
+    "scan_qr_code": "Scan QR Code",
+    "scan_qr_code_sub": "From ID",
+    "footer_tag": "Secure • Fast • Paperless Registration"
+  },
+
+  "select_department": {
+    "title": "Select Department",
+    "subtitle": "Choose the department you want to consult",
+    "search_placeholder": "Search Departments",
+    "min_wait": "min wait",
+    "wait_time_note": "Wait times are approximate and may change",
+    "cardiology": "Cardiology",
+    "cardiology_desc": "Heart & Vascular Care",
+    "orthopedics": "Orthopedics",
+    "orthopedics_desc": "Bone, Joint & Spine Care",
+    "neurology": "Neurology",
+    "neurology_desc": "Brain & Nerve Care",
+    "ivf_fertility": "IVF & Fertility",
+    "ivf_fertility_desc": "Fertility & Reproductive",
+    "general_opd": "General OPD",
+    "general_opd_desc": "General Physician",
+    "pediatrics": "Pediatrics",
+    "pediatrics_desc": "Child Health Care",
+    "gynecology": "Gynecology",
+    "gynecology_desc": "Women's Health Care",
+    "ophthalmology": "Ophthalmology",
+    "ophthalmology_desc": "Eye Care"
+  },
+
+  "select_doctor": {
+    "title": "Select Doctor",
+    "subtitle": "Choose your preferred doctor",
+    "search_placeholder": "Search Doctor",
+    "available_today": "Available Today",
+    "not_available_today": "Not Available Today",
+    "next_time_slot": "Next Time Slot",
+    "book_appointment": "Book Appointment",
+    "selected": "Selected",
+    "senior_cardiologist": "Senior Cardiologist"
+  },
+
+  "appointment_confirmed": {
+    "title": "Appointment Confirmed",
+    "subtitle": "Thank you. Your appointment has been successfully booked",
+    "token_number": "Your Token Number",
+    "token_note": "Please keep this token for your visit",
+    "appointment_time": "Appointment Time",
+    "doctor": "Doctor",
+    "show_qr": "Show this QR code at the reception",
+    "whats_next": "What's Next ?",
+    "whats_next_note": "Please report to Neurology Department 15 minutes before your appointment time.",
+    "print_slip": "Print Slip",
+    "print_slip_sub": "Get your appointment slip",
+    "send_whatsapp": "Send on WhatsApp",
+    "send_whatsapp_sub": "Get details on your phone",
+    "send_sms": "Send on SMS",
+    "send_sms_sub": "Get details on your phone",
+    "finish": "Finish — Return to Home"
+  }
+}

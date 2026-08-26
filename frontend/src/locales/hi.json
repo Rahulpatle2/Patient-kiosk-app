@@ -1,0 +1,152 @@
+{
+  "common": {
+    "back": "वापस",
+    "next": "आगे",
+    "secure_badge": "सुरक्षित • निजी • भरोसेमंद",
+    "need_help": "मदद चाहिए?",
+    "tap_for_assistance": "सहायता के लिए टैप करें",
+    "english": "English",
+    "hindi": "हिंदी",
+    "marathi": "मराठी",
+    "cancel_registration": "पंजीकरण रद्द करें",
+    "save_and_continue": "सहेजें और आगे बढ़ें"
+  },
+
+  "registration_progress": {
+    "title": "पंजीकरण प्रगति",
+    "mobile_number": "मोबाइल नंबर",
+    "verification": "सत्यापन",
+    "verified_successfully": "सफलतापूर्वक सत्यापित",
+    "patient_information": "रोगी जानकारी",
+    "please_provide_details": "कृपया अपना विवरण दें",
+    "details_saved": "विवरण सहेजा गया",
+    "department_selection": "विभाग चयन",
+    "select_your_department": "अपना विभाग चुनें",
+    "department_selected": "विभाग चयनित",
+    "doctor_selection": "डॉक्टर चयन",
+    "choose_your_doctor": "अपना डॉक्टर चुनें",
+    "doctor_selected": "डॉक्टर चयनित",
+    "confirmation": "पुष्टिकरण",
+    "review_and_confirm": "समीक्षा करें और पुष्टि करें"
+  },
+
+  "welcome": {
+    "title": "आपका स्वागत है",
+    "hospital_name": "बालाजी लाइफकेयर",
+    "subtitle": "तेज़ रोगी पंजीकरण",
+    "register_new_patient": "पंजीकरण करें",
+    "register_new_patient_sub": "नया रोगी",
+    "existing_patient": "मौजूदा",
+    "existing_patient_sub": "रोगी",
+    "scan_qr": "स्कैन करें",
+    "scan_qr_sub": "अपॉइंटमेंट क्यूआर"
+  },
+
+  "verify_mobile": {
+    "title_line1": "आइए सत्यापित करें आपका",
+    "title_highlight": "मोबाइल नंबर",
+    "subtitle": "जारी रखने के लिए अपना 10-अंकीय मोबाइल नंबर दर्ज करें",
+    "placeholder": "मोबाइल नंबर दर्ज करें",
+    "send_otp": "ओटीपी भेजें"
+  },
+
+  "verify_otp": {
+    "title": "ओटीपी सत्यापित करें",
+    "subtitle": "इस नंबर पर भेजा गया 6-अंकीय ओटीपी दर्ज करें",
+    "auto_submit": "ओटीपी स्वतः सबमिट होगा",
+    "didnt_receive": "ओटीपी नहीं मिला?",
+    "resend_otp": "ओटीपी पुनः भेजें",
+    "having_trouble": "समस्या हो रही है?",
+    "get_call_otp": "कॉल पर ओटीपी प्राप्त करें",
+    "verification_secure": "आपका सत्यापन सुरक्षित है"
+  },
+
+  "patient_info": {
+    "title": "रोगी जानकारी",
+    "subtitle": "सुगम पंजीकरण के लिए कृपया सही विवरण दें।",
+    "full_name": "पूरा नाम",
+    "first_name": "पहला नाम",
+    "middle_name": "मध्य नाम",
+    "last_name": "अंतिम नाम",
+    "gender": "लिंग",
+    "male": "पुरुष",
+    "female": "महिला",
+    "other": "अन्य",
+    "date_of_birth": "जन्म तिथि",
+    "dob_placeholder": "दिन/माह/वर्ष",
+    "email": "ईमेल",
+    "email_placeholder": "अपना ईमेल दर्ज करें",
+    "address": "पता",
+    "house_no": "मकान नं., भवन, सड़क",
+    "landmark": "लैंडमार्क (वैकल्पिक)",
+    "city": "शहर / जिला",
+    "state": "राज्य",
+    "pin_code": "पिन कोड",
+    "emergency_contact": "आपातकालीन संपर्क",
+    "emergency_name": "नाम",
+    "emergency_mobile": "मोबाइल नंबर",
+    "data_safe_title": "आपका डेटा हमारे पास सुरक्षित है",
+    "data_safe_subtitle": "हम राष्ट्रीय डेटा सुरक्षा मानकों का पालन करते हैं।",
+    "quick_fill": "त्वरित भरने के विकल्प",
+    "scan_aadhaar": "आधार स्कैन करें",
+    "scan_aadhaar_sub": "आधार से",
+    "scan_qr_code": "क्यूआर कोड स्कैन करें",
+    "scan_qr_code_sub": "आईडी से",
+    "footer_tag": "सुरक्षित • तेज़ • कागज़ रहित पंजीकरण"
+  },
+
+  "select_department": {
+    "title": "विभाग चुनें",
+    "subtitle": "वह विभाग चुनें जिससे आप परामर्श करना चाहते हैं",
+    "search_placeholder": "विभाग खोजें",
+    "min_wait": "मिनट प्रतीक्षा",
+    "wait_time_note": "प्रतीक्षा समय अनुमानित है और बदल सकता है",
+    "cardiology": "हृदय रोग विभाग",
+    "cardiology_desc": "हृदय एवं संवहनी देखभाल",
+    "orthopedics": "अस्थि रोग विभाग",
+    "orthopedics_desc": "हड्डी, जोड़ एवं रीढ़ की देखभाल",
+    "neurology": "तंत्रिका विज्ञान विभाग",
+    "neurology_desc": "मस्तिष्क एवं तंत्रिका देखभाल",
+    "ivf_fertility": "आईवीएफ एवं प्रजनन",
+    "ivf_fertility_desc": "प्रजनन क्षमता देखभाल",
+    "general_opd": "सामान्य ओपीडी",
+    "general_opd_desc": "सामान्य चिकित्सक",
+    "pediatrics": "बाल रोग विभाग",
+    "pediatrics_desc": "बाल स्वास्थ्य देखभाल",
+    "gynecology": "स्त्री रोग विभाग",
+    "gynecology_desc": "महिला स्वास्थ्य देखभाल",
+    "ophthalmology": "नेत्र रोग विभाग",
+    "ophthalmology_desc": "नेत्र देखभाल"
+  },
+
+  "select_doctor": {
+    "title": "डॉक्टर चुनें",
+    "subtitle": "अपने पसंदीदा डॉक्टर को चुनें",
+    "search_placeholder": "डॉक्टर खोजें",
+    "available_today": "आज उपलब्ध",
+    "not_available_today": "आज उपलब्ध नहीं",
+    "next_time_slot": "अगला समय स्लॉट",
+    "book_appointment": "अपॉइंटमेंट बुक करें",
+    "selected": "चयनित",
+    "senior_cardiologist": "वरिष्ठ हृदय रोग विशेषज्ञ"
+  },
+
+  "appointment_confirmed": {
+    "title": "अपॉइंटमेंट पुष्ट",
+    "subtitle": "धन्यवाद। आपका अपॉइंटमेंट सफलतापूर्वक बुक हो गया है",
+    "token_number": "आपका टोकन नंबर",
+    "token_note": "कृपया अपनी विज़िट के लिए यह टोकन रखें",
+    "appointment_time": "अपॉइंटमेंट समय",
+    "doctor": "डॉक्टर",
+    "show_qr": "रिसेप्शन पर यह क्यूआर कोड दिखाएं",
+    "whats_next": "आगे क्या करें?",
+    "whats_next_note": "कृपया अपने अपॉइंटमेंट समय से 15 मिनट पहले न्यूरोलॉजी विभाग में रिपोर्ट करें।",
+    "print_slip": "स्लिप प्रिंट करें",
+    "print_slip_sub": "अपनी अपॉइंटमेंट स्लिप प्राप्त करें",
+    "send_whatsapp": "व्हाट्सएप पर भेजें",
+    "send_whatsapp_sub": "अपने फोन पर विवरण प्राप्त करें",
+    "send_sms": "एसएमएस पर भेजें",
+    "send_sms_sub": "अपने फोन पर विवरण प्राप्त करें",
+    "finish": "समाप्त — होम पर वापस जाएं"
+  }
+}

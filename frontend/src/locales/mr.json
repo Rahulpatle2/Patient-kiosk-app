@@ -1,0 +1,152 @@
+{
+  "common": {
+    "back": "मागे",
+    "next": "पुढे",
+    "secure_badge": "सुरक्षित • खाजगी • विश्वासार्ह",
+    "need_help": "मदत हवी आहे?",
+    "tap_for_assistance": "सहाय्यासाठी टॅप करा",
+    "english": "English",
+    "hindi": "हिंदी",
+    "marathi": "मराठी",
+    "cancel_registration": "नोंदणी रद्द करा",
+    "save_and_continue": "जतन करा आणि पुढे जा"
+  },
+
+  "registration_progress": {
+    "title": "नोंदणी प्रगती",
+    "mobile_number": "मोबाईल नंबर",
+    "verification": "पडताळणी",
+    "verified_successfully": "यशस्वीरित्या पडताळणी झाली",
+    "patient_information": "रुग्ण माहिती",
+    "please_provide_details": "कृपया तुमचे तपशील द्या",
+    "details_saved": "तपशील जतन केले",
+    "department_selection": "विभाग निवड",
+    "select_your_department": "तुमचा विभाग निवडा",
+    "department_selected": "विभाग निवडला",
+    "doctor_selection": "डॉक्टर निवड",
+    "choose_your_doctor": "तुमचा डॉक्टर निवडा",
+    "doctor_selected": "डॉक्टर निवडला",
+    "confirmation": "पुष्टीकरण",
+    "review_and_confirm": "पुनरावलोकन करा आणि पुष्टी करा"
+  },
+
+  "welcome": {
+    "title": "आपले स्वागत आहे",
+    "hospital_name": "बालाजी लाइफकेअर",
+    "subtitle": "जलद रुग्ण नोंदणी",
+    "register_new_patient": "नोंदणी करा",
+    "register_new_patient_sub": "नवीन रुग्ण",
+    "existing_patient": "विद्यमान",
+    "existing_patient_sub": "रुग्ण",
+    "scan_qr": "स्कॅन करा",
+    "scan_qr_sub": "अपॉइंटमेंट क्यूआर"
+  },
+
+  "verify_mobile": {
+    "title_line1": "चला पडताळूया तुमचा",
+    "title_highlight": "मोबाईल नंबर",
+    "subtitle": "पुढे जाण्यासाठी तुमचा 10-अंकी मोबाईल नंबर टाका",
+    "placeholder": "मोबाईल नंबर टाका",
+    "send_otp": "ओटीपी पाठवा"
+  },
+
+  "verify_otp": {
+    "title": "ओटीपी पडताळा",
+    "subtitle": "या क्रमांकावर पाठवलेला 6-अंकी ओटीपी टाका",
+    "auto_submit": "ओटीपी आपोआप सबमिट होईल",
+    "didnt_receive": "ओटीपी मिळाला नाही?",
+    "resend_otp": "ओटीपी पुन्हा पाठवा",
+    "having_trouble": "अडचण येत आहे?",
+    "get_call_otp": "कॉलवर ओटीपी मिळवा",
+    "verification_secure": "तुमची पडताळणी सुरक्षित आहे"
+  },
+
+  "patient_info": {
+    "title": "रुग्ण माहिती",
+    "subtitle": "सुरळीत नोंदणीसाठी कृपया अचूक तपशील द्या.",
+    "full_name": "पूर्ण नाव",
+    "first_name": "पहिले नाव",
+    "middle_name": "मधले नाव",
+    "last_name": "आडनाव",
+    "gender": "लिंग",
+    "male": "पुरुष",
+    "female": "स्त्री",
+    "other": "इतर",
+    "date_of_birth": "जन्मतारीख",
+    "dob_placeholder": "दिनांक/महिना/वर्ष",
+    "email": "ईमेल",
+    "email_placeholder": "तुमचा ईमेल टाका",
+    "address": "पत्ता",
+    "house_no": "घर क्र., इमारत, रस्ता",
+    "landmark": "खूण (ऐच्छिक)",
+    "city": "शहर / जिल्हा",
+    "state": "राज्य",
+    "pin_code": "पिन कोड",
+    "emergency_contact": "आणीबाणी संपर्क",
+    "emergency_name": "नाव",
+    "emergency_mobile": "मोबाईल नंबर",
+    "data_safe_title": "तुमचा डेटा आमच्याकडे सुरक्षित आहे",
+    "data_safe_subtitle": "आम्ही राष्ट्रीय डेटा संरक्षण मानकांचे पालन करतो.",
+    "quick_fill": "जलद भरण्याचे पर्याय",
+    "scan_aadhaar": "आधार स्कॅन करा",
+    "scan_aadhaar_sub": "आधारवरून",
+    "scan_qr_code": "क्यूआर कोड स्कॅन करा",
+    "scan_qr_code_sub": "आयडीवरून",
+    "footer_tag": "सुरक्षित • जलद • कागदविरहित नोंदणी"
+  },
+
+  "select_department": {
+    "title": "विभाग निवडा",
+    "subtitle": "तुम्हाला ज्या विभागाचा सल्ला घ्यायचा आहे तो निवडा",
+    "search_placeholder": "विभाग शोधा",
+    "min_wait": "मिनिटे प्रतीक्षा",
+    "wait_time_note": "प्रतीक्षा वेळ अंदाजे आहे आणि बदलू शकते",
+    "cardiology": "हृदयरोग विभाग",
+    "cardiology_desc": "हृदय व रक्तवाहिनी काळजी",
+    "orthopedics": "अस्थिरोग विभाग",
+    "orthopedics_desc": "हाड, सांधे व मणका काळजी",
+    "neurology": "मज्जातंतुविज्ञान विभाग",
+    "neurology_desc": "मेंदू व मज्जातंतू काळजी",
+    "ivf_fertility": "आयव्हीएफ व प्रजनन",
+    "ivf_fertility_desc": "प्रजनन क्षमता काळजी",
+    "general_opd": "सामान्य ओपीडी",
+    "general_opd_desc": "सामान्य वैद्य",
+    "pediatrics": "बालरोग विभाग",
+    "pediatrics_desc": "बाल आरोग्य सेवा",
+    "gynecology": "स्त्रीरोग विभाग",
+    "gynecology_desc": "महिला आरोग्य सेवा",
+    "ophthalmology": "नेत्ररोग विभाग",
+    "ophthalmology_desc": "डोळ्यांची काळजी"
+  },
+
+  "select_doctor": {
+    "title": "डॉक्टर निवडा",
+    "subtitle": "तुमचा आवडता डॉक्टर निवडा",
+    "search_placeholder": "डॉक्टर शोधा",
+    "available_today": "आज उपलब्ध",
+    "not_available_today": "आज उपलब्ध नाही",
+    "next_time_slot": "पुढील वेळ स्लॉट",
+    "book_appointment": "अपॉइंटमेंट बुक करा",
+    "selected": "निवडले",
+    "senior_cardiologist": "वरिष्ठ हृदयरोग तज्ज्ञ"
+  },
+
+  "appointment_confirmed": {
+    "title": "अपॉइंटमेंट निश्चित",
+    "subtitle": "धन्यवाद. तुमची अपॉइंटमेंट यशस्वीरित्या बुक झाली आहे",
+    "token_number": "तुमचा टोकन क्रमांक",
+    "token_note": "कृपया तुमच्या भेटीसाठी हा टोकन ठेवा",
+    "appointment_time": "अपॉइंटमेंट वेळ",
+    "doctor": "डॉक्टर",
+    "show_qr": "रिसेप्शनवर हा क्यूआर कोड दाखवा",
+    "whats_next": "पुढे काय?",
+    "whats_next_note": "कृपया तुमच्या अपॉइंटमेंट वेळेच्या 15 मिनिटे आधी न्यूरोलॉजी विभागात रिपोर्ट करा.",
+    "print_slip": "स्लिप प्रिंट करा",
+    "print_slip_sub": "तुमची अपॉइंटमेंट स्लिप मिळवा",
+    "send_whatsapp": "व्हॉट्सअ‍ॅपवर पाठवा",
+    "send_whatsapp_sub": "तुमच्या फोनवर तपशील मिळवा",
+    "send_sms": "एसएमएसवर पाठवा",
+    "send_sms_sub": "तुमच्या फोनवर तपशील मिळवा",
+    "finish": "समाप्त — होमवर परत जा"
+  }
+}
