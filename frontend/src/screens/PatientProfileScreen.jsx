@@ -195,8 +195,14 @@ export default function PatientProfileScreen({ navigation }) {
 
             </View>
 
-            {/* Right Column */}
+           
+          {/* Right Column */}
             <View style={styles.rightCol}>
+              <Image 
+                source={require('../assets/verify-mobile-illustration.png')} 
+                style={styles.rightColImage}
+                resizeMode="contain"
+              />
             </View>
 
           </View>
@@ -283,6 +289,15 @@ const styles = StyleSheet.create({
   twoCol:   { flexDirection: 'row', gap: 16 },
   leftCol:  { flex: 1, gap: 16 },
   rightCol: { flex: 1, gap: 16 },
+ rightCol: { 
+    flex: 1, 
+    justifyContent: 'center', 
+    alignItems: 'center' 
+  },
+  rightColImage: { 
+    width: '100%', 
+    height: 320 
+  },
 
   card: { borderWidth: 1, borderColor: '#73737326', borderRadius: 12, padding: 16, gap: 12, backgroundColor: '#F9FFFF' },
   cardTitle: { fontSize: 14, fontWeight: '700', color: '#001532' },

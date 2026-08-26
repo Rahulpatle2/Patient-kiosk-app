@@ -292,7 +292,7 @@ const styles = StyleSheet.create({
   secureText: { fontSize: 16, fontWeight: '500', color: '#485260' },
 
   // Body
-  body: { flex: 1, flexDirection: 'row', paddingHorizontal: 20, paddingVertical: 5, gap: 16 },
+  body: { flex: 1, flexDirection: 'row', paddingHorizontal: 20, paddingVertical: 0, gap: 16 },
 
   // Sidebar
   sidebar: { width: 'auto', paddingVertical: 20, paddingHorizontal: 16, backgroundColor: '#F9FFFF', borderRadius: 16, borderWidth: 1, borderColor: '#00A4A420', gap: 30 },
@@ -389,7 +389,7 @@ const styles = StyleSheet.create({
   finishButtonText: { fontSize: 16, fontWeight: '700', color: '#ffffff' },
 
   // Footer
-  footer: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingHorizontal: 40, paddingVertical: 20 },
+  footer: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingHorizontal: 40, paddingVertical: 0 },
   footerLeft: { flexDirection: 'row', alignItems: 'center', gap: 30 },
   footerLangActive: { flexDirection: 'row', alignItems: 'center', columnGap: 6 },
   footerIcon: { width: 24, height: 24 },
