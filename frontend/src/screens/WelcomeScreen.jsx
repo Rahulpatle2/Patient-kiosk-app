@@ -157,7 +157,7 @@ export default function WelcomeScreen({ navigation }) {
               styles.card,
               pressed && styles.cardPressed,
             ]}
-            onPress={() => navigation.navigate("VerifyMobile")}
+            onPress={() => navigation.navigate("ComingSoonScreen")}
           >
             <Image
               source={require("../assets/scan-qr-icon.png")}

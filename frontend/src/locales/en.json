@@ -38,8 +38,8 @@
     "register_new_patient_sub": "New Patient",
     "existing_patient": "Existing",
     "existing_patient_sub": "Patient",
-    "scan_qr": "Scan",
-    "scan_qr_sub": "Appointment QR"
+    "scan_qr": "Book",
+    "scan_qr_sub": "Appointment"
   },
 
   "verify_mobile": {

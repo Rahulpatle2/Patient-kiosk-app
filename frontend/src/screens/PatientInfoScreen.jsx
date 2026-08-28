@@ -86,7 +86,7 @@ const FORM_FIELDS = [
   },
   {
     id: 10,
-    nameKey: 'City',
+    nameKey: 'location',
     icon: require('../assets/Address.png'),
     type: 'location',
   },
@@ -170,7 +170,7 @@ export default function PatientInfoScreen({ navigation }) {
 
       const response = await registerPatient(patientData)
 
-      setPatientId(response.data.id)
+      setPatientId(response.data.PatientID)
       setPatientName(`${form.firstName} ${form.middleName} ${form.lastName}`.trim())
 
       navigation.navigate('SelectDepartment')
@@ -304,35 +304,45 @@ export default function PatientInfoScreen({ navigation }) {
       )
     }
 
-    if (field.type === 'location') {
-      return (
-        <View key={field.id} style={[styles.formSection, { zIndex: 10 }]}>
-          <View style={styles.sectionHeader}>
-            <Image style={styles.sectionIcon} source={field.icon} resizeMode="contain" />
-            <Text style={styles.sectionLabel}>{t(field.nameKey)}</Text>
-          </View>
-          <View style={[styles.inputRow, { zIndex: 10 }]}>
-            <LocationDropdown
-              type="state"
-              value={form.state}
-              placeholder={t('patient_info.state')}
-              onSelect={(state) => {
-                setSelectedStateCode(state.code)
-                handleChange('state', state.name)
-                handleChange('city', '')
-              }}
-            />
-            <LocationDropdown
-              type="city"
-              stateCode={selectedStateCode}
-              value={form.city}
-              placeholder={t('patient_info.city')}
-              onSelect={(city) => handleChange('city', city.name)}
-            />
-          </View>
+   if (field.type === 'location') {
+  return (
+    <View key={field.id} style={[styles.formSection, { zIndex: 10 }]}>
+      <View style={styles.sectionHeader}>
+        <Image style={styles.sectionIcon} source={field.icon} resizeMode="contain" />
+        <Text style={styles.sectionLabel}>{'location'}</Text>
+      </View>
+
+      <View style={[styles.inputRow, { zIndex: 10 }]}>
+        {/* State Dropdown with Label */}
+        <View style={styles.dropdownFieldWrapper}>
+          <Text style={styles.subFieldLabel}>{t('patient_info.state') || 'State'}</Text>
+          <LocationDropdown
+            type="state"
+            value={form.state}
+            placeholder={t('patient_info.state')}
+            onSelect={(state) => {
+              setSelectedStateCode(state.code)
+              handleChange('state', state.name)
+              handleChange('city', '')
+            }}
+          />
         </View>
-      )
-    }
+
+        {/* City Dropdown with Label */}
+        <View style={styles.dropdownFieldWrapper}>
+          <Text style={styles.subFieldLabel}>{t('patient_info.city') || 'City'}</Text>
+          <LocationDropdown
+            type="city"
+            stateCode={selectedStateCode}
+            value={form.city}
+            placeholder={t('patient_info.city')}
+            onSelect={(city) => handleChange('city', city.name)}
+          />
+        </View>
+      </View>
+    </View>
+  )
+}
   }
 
   // ─── Render ───────────────────────────────────────────────
@@ -720,4 +730,14 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
   },
+  dropdownFieldWrapper: {
+  flex: 1,
+  gap: 4,
+},
+subFieldLabel: {
+  fontSize: 13,
+  fontWeight: '600',
+  color: '#485260',
+  marginBottom: 2,
+},
 })

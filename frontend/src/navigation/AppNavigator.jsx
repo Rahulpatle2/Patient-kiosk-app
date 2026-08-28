@@ -11,7 +11,7 @@ import SelectDoctorScreen from '../screens/SelectDoctorScreen'
 import AppointmentConfirmedScreen from '../screens/AppointmentConfirmedScreen'
 import PatientLookupScreen from '../screens/PatientLookupScreen'
 import PatientProfileScreen from '../screens/PatientProfileScreen'
-
+import ComingSoonScreen from '../screens/ComingSoonScreen'
 
 const Stack = createStackNavigator()
 
@@ -34,6 +34,7 @@ export default function AppNavigator() {
         <Stack.Screen name="AppointmentConfirmed" component={AppointmentConfirmedScreen} />
         <Stack.Screen name="PatientLookupScreen" component={PatientLookupScreen}/>
         <Stack.Screen name="PatientProfile" component={PatientProfileScreen} />
+        <Stack.Screen name="ComingSoonScreen" component={ComingSoonScreen}/>
       </Stack.Navigator>
     </NavigationContainer>
   )

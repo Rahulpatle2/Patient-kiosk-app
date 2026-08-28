@@ -38,8 +38,8 @@
     "register_new_patient_sub": "नया रोगी",
     "existing_patient": "मौजूदा",
     "existing_patient_sub": "रोगी",
-    "scan_qr": "स्कैन करें",
-    "scan_qr_sub": "अपॉइंटमेंट क्यूआर"
+    "scan_qr": "बुक ",
+    "scan_qr_sub": "अपॉइंटमेंट "
   },
 
   "verify_mobile": {

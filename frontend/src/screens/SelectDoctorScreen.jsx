@@ -47,7 +47,7 @@ export default function SelectDoctorScreen({ navigation }) {
   console.log(department)
   console.log(department.specialty)
   console.log(doctors)
-
+  console.log('Current patientId in context:', patientId);
   // ─── Fetch Doctors List ─────────────────────────────────────
   useEffect(() => {
     const fetchDoctors = async () => {
