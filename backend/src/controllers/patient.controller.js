@@ -1,4 +1,3 @@
-const { findByMrnAndMobile } = require('../models/patient.model');
 const otpService = require('../services/otp.service');
 const patientService = require('../services/patient.service');
 

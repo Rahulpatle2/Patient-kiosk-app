@@ -1,7 +1,7 @@
 const patientModel = require('../models/patient.model');
 
 exports.registerPatient = async (patientData) => {
-  const existing = await patientModel.findByMobile(patientData.mobile);
+  const existing = await patientModel.findByMobile(patientData.mobile, patientData.PtFName);
 
   if (existing) {
     const err = new Error('User already exists. Please go to another counter.');

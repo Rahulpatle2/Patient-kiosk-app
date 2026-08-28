@@ -1,27 +1,41 @@
-import { StyleSheet, Text, View, Pressable, Modal } from 'react-native'
-import React, { useState } from 'react'
+import { StyleSheet, Text, View, Pressable, Modal, ScrollView } from 'react-native'
+import React, { useState, useEffect } from 'react'
 
 const DAYS = ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su']
 const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June',
                 'July', 'August', 'September', 'October', 'November', 'December']
 
-export default function CalendarPicker({ visible, onClose, onSelect }) {
-
+export default function CalendarPicker({ visible, onClose, onSelect, initialDate = null, mode = 'future' }) {
   const today = new Date()
   const [currentMonth, setCurrentMonth] = useState(today.getMonth())
   const [currentYear, setCurrentYear]   = useState(today.getFullYear())
   const [selectedDate, setSelectedDate] = useState(null)
+  const [showYearPicker, setShowYearPicker] = useState(false)
 
-  // ─── Get days in month ────────────────────────────────────
+  // Generate Year list (1900 se lekar currentYear + 10 tak)
+  const startYear = 1900
+  const endYear = mode === 'dob' ? today.getFullYear() : today.getFullYear() + 10
+  const years = Array.from({ length: endYear - startYear + 1 }, (_, i) => endYear - i)
+
+  useEffect(() => {
+    if (initialDate) {
+      setSelectedDate(initialDate)
+      setCurrentMonth(initialDate.getMonth())
+      setCurrentYear(initialDate.getFullYear())
+    } else {
+      setCurrentMonth(today.getMonth())
+      setCurrentYear(today.getFullYear())
+    }
+    setShowYearPicker(false)
+  }, [visible, initialDate])
+
   const getDaysInMonth = (month, year) => new Date(year, month + 1, 0).getDate()
 
-  // ─── Get first day of month (0=Sun, 1=Mon...) ─────────────
   const getFirstDay = (month, year) => {
     const day = new Date(year, month, 1).getDay()
-    return day === 0 ? 6 : day - 1 // Convert to Mon=0 format
+    return day === 0 ? 6 : day - 1
   }
 
-  // ─── Handlers ─────────────────────────────────────────────
   const handlePrevMonth = () => {
     if (currentMonth === 0) {
       setCurrentMonth(11)
@@ -65,13 +79,15 @@ export default function CalendarPicker({ visible, onClose, onSelect }) {
            currentYear === selectedDate.getFullYear()
   }
 
-  const isPast = (day) => {
+  const isDisabled = (day) => {
     const date = new Date(currentYear, currentMonth, day)
     const todayStart = new Date(today.getFullYear(), today.getMonth(), today.getDate())
+    if (mode === 'dob') {
+      return date > todayStart
+    }
     return date < todayStart
   }
 
-  // ─── Build calendar grid ──────────────────────────────────
   const daysInMonth = getDaysInMonth(currentMonth, currentYear)
   const firstDay    = getFirstDay(currentMonth, currentYear)
   const totalCells  = Math.ceil((firstDay + daysInMonth) / 7) * 7
@@ -80,7 +96,6 @@ export default function CalendarPicker({ visible, onClose, onSelect }) {
     return day >= 1 && day <= daysInMonth ? day : null
   })
 
-  // ─── Render ───────────────────────────────────────────────
   return (
     <Modal
       visible={visible}
@@ -88,59 +103,103 @@ export default function CalendarPicker({ visible, onClose, onSelect }) {
       animationType="fade"
       onRequestClose={onClose}
     >
-      {/* Backdrop */}
       <Pressable style={styles.backdrop} onPress={onClose}>
+        <Pressable style={styles.calendarBox} onPress={(e) => e.stopPropagation()}>
 
-        {/* Calendar Box */}
-        <Pressable style={styles.calendarBox} onPress={() => {}}>
-
-          {/* ── Month Navigation ── */}
+          {/* ── Month & Year Header ── */}
           <View style={styles.monthRow}>
             <Pressable style={styles.navBtn} onPress={handlePrevMonth}>
               <Text style={styles.navBtnText}>‹</Text>
             </Pressable>
-            <Text style={styles.monthTitle}>
-              {MONTHS[currentMonth]} {currentYear}
-            </Text>
+
+            {/* Click here to toggle Quick Year Picker */}
+            <Pressable
+              style={styles.titleContainer}
+              onPress={() => setShowYearPicker(prev => !prev)}
+            >
+              <Text style={styles.monthTitle}>
+                {MONTHS[currentMonth]} {currentYear}
+              </Text>
+              <Text style={styles.dropdownArrow}>{showYearPicker ? '▲' : '▼'}</Text>
+            </Pressable>
+
             <Pressable style={styles.navBtn} onPress={handleNextMonth}>
               <Text style={styles.navBtnText}>›</Text>
             </Pressable>
           </View>
 
-          {/* ── Day Headers ── */}
-          <View style={styles.daysRow}>
-            {DAYS.map((day) => (
-              <Text key={day} style={styles.dayHeader}>{day}</Text>
-            ))}
-          </View>
+          {/* ── Year Picker Grid Overlay ── */}
+          {showYearPicker ? (
+            <View style={styles.yearPickerContainer}>
+              <Text style={styles.yearPickerHeading}>Select Year</Text>
+              <ScrollView style={styles.yearScrollView} contentContainerStyle={styles.yearGrid}>
+                {years.map((yr) => (
+                  <Pressable
+                    key={yr}
+                    style={[
+                      styles.yearItem,
+                      yr === currentYear && styles.yearItemSelected,
+                    ]}
+                    onPress={() => {
+                      setCurrentYear(yr)
+                      setShowYearPicker(false)
+                    }}
+                  >
+                    <Text
+                      style={[
+                        styles.yearItemText,
+                        yr === currentYear && styles.yearItemTextSelected,
+                      ]}
+                    >
+                      {yr}
+                    </Text>
+                  </Pressable>
+                ))}
+              </ScrollView>
+            </View>
+          ) : (
+            <>
+              {/* ── Day Headers ── */}
+              <View style={styles.daysRow}>
+                {DAYS.map((day) => (
+                  <Text key={day} style={styles.dayHeader}>{day}</Text>
+                ))}
+              </View>
 
-          {/* ── Date Grid ── */}
-          <View style={styles.grid}>
-            {cells.map((day, index) => (
-              <Pressable
-                key={index}
-                style={[
-                  styles.cell,
-                  day && isSelected(day) && styles.cellSelected,
-                  day && isToday(day) && !isSelected(day) && styles.cellToday,
-                  day && isPast(day) && styles.cellPast,
-                ]}
-                onPress={() => day && !isPast(day) && handleDateSelect(day)}
-                disabled={!day || isPast(day)}
-              >
-                <Text style={[
-                  styles.cellText,
-                  day && isSelected(day) && styles.cellTextSelected,
-                  day && isToday(day) && !isSelected(day) && styles.cellTextToday,
-                  day && isPast(day) && styles.cellTextPast,
-                ]}>
-                  {day || ''}
-                </Text>
-              </Pressable>
-            ))}
-          </View>
+              {/* ── Date Grid ── */}
+              <View style={styles.grid}>
+                {cells.map((day, index) => {
+                  const disabled = !day || isDisabled(day)
+                  return (
+                    <Pressable
+                      key={index}
+                      style={[
+                        styles.cell,
+                        day && isSelected(day) && styles.cellSelected,
+                        day && isToday(day) && !isSelected(day) && styles.cellToday,
+                        disabled && styles.cellDisabled,
+                      ]}
+                      onPress={() => day && !disabled && handleDateSelect(day)}
+                      disabled={disabled}
+                    >
+                      <Text
+                        style={[
+                          styles.cellText,
+                          day && isSelected(day) && styles.cellTextSelected,
+                          day && isToday(day) && !isSelected(day) && styles.cellTextToday,
+                          disabled && styles.cellTextDisabled,
+                        ]}
+                      >
+                        {day || ''}
+                      </Text>
+                    </Pressable>
+                  )
+                })}
+              </View>
+            </>
+          )}
 
-          {/* ── Footer Buttons ── */}
+          {/* ── Footer ── */}
           <View style={styles.footerRow}>
             <Pressable style={styles.cancelBtn} onPress={onClose}>
               <Text style={styles.cancelBtnText}>Cancel</Text>
@@ -148,6 +207,7 @@ export default function CalendarPicker({ visible, onClose, onSelect }) {
             <Pressable
               style={[styles.confirmBtn, !selectedDate && styles.confirmBtnDisabled]}
               onPress={handleConfirm}
+              disabled={!selectedDate}
             >
               <Text style={styles.confirmBtnText}>Confirm</Text>
             </Pressable>
@@ -160,30 +220,41 @@ export default function CalendarPicker({ visible, onClose, onSelect }) {
 }
 
 const styles = StyleSheet.create({
-
-  // Backdrop
   backdrop: {
     flex: 1,
     backgroundColor: '#00000060',
     justifyContent: 'center',
     alignItems: 'center',
   },
-
-  // Calendar Box
   calendarBox: {
     backgroundColor: '#ffffff',
     borderRadius: 16,
     padding: 24,
     width: 400,
     gap: 16,
-    boxShadow: '0px 8px 24px rgba(0,0,0,0.15)',
+    elevation: 8,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.15,
+    shadowRadius: 12,
   },
-
-  // Month Navigation
   monthRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+  },
+  titleContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    borderRadius: 8,
+    backgroundColor: '#F9FFFF',
+  },
+  dropdownArrow: {
+    fontSize: 10,
+    color: '#00A4A4',
   },
   navBtn: {
     width: 40,
@@ -205,8 +276,6 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: '#001532',
   },
-
-  // Day Headers
   daysRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -218,8 +287,6 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: '#737373',
   },
-
-  // Date Grid
   grid: {
     flexDirection: 'row',
     flexWrap: 'wrap',
@@ -239,7 +306,7 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: '#00A4A4',
   },
-  cellPast: {
+  cellDisabled: {
     opacity: 0.3,
   },
   cellText: {
@@ -255,11 +322,51 @@ const styles = StyleSheet.create({
     color: '#00A4A4',
     fontWeight: '700',
   },
-  cellTextPast: {
+  cellTextDisabled: {
     color: '#737373',
   },
-
-  // Footer
+  yearPickerContainer: {
+    height: 250,
+  },
+  yearPickerHeading: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: '#737373',
+    marginBottom: 8,
+    textAlign: 'center',
+  },
+  yearScrollView: {
+    flex: 1,
+  },
+  yearGrid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 8,
+    justifyContent: 'center',
+    paddingVertical: 4,
+  },
+  yearItem: {
+    width: 76,
+    paddingVertical: 10,
+    borderRadius: 8,
+    alignItems: 'center',
+    backgroundColor: '#F9FFFF',
+    borderWidth: 1,
+    borderColor: '#00A4A420',
+  },
+  yearItemSelected: {
+    backgroundColor: '#00A4A4',
+    borderColor: '#00A4A4',
+  },
+  yearItemText: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: '#001532',
+  },
+  yearItemTextSelected: {
+    color: '#ffffff',
+    fontWeight: '700',
+  },
   footerRow: {
     flexDirection: 'row',
     gap: 12,
@@ -292,5 +399,4 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: '#ffffff',
   },
-
 })

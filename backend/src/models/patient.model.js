@@ -1,7 +1,7 @@
 const db = require('../config/db');
 
-exports.findByMobile = async (mobile) => {
-  const [rows] = await db.query('SELECT * FROM registration WHERE mobile = ?', [mobile]);
+exports.findByMobile = async (mobile,PtFName) => {
+  const [rows] = await db.query('SELECT * FROM registration WHERE mobile = ? AND PtFName = ?', [mobile, PtFName]);
   return rows[0];
 };
 

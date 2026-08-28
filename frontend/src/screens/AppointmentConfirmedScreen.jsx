@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View, Pressable, Image, ScrollView } from 'react-native'
-import React from 'react'
+import React, { useEffect } from 'react'
 import QRCode from 'react-native-qrcode-svg'
+import { usePatient } from '../context/PatientContext.js' // Context import kiya
 
 // Fallback Doctor Image
 const DEFAULT_DOCTOR_IMAGE = 'https://cdn-icons-png.flaticon.com/512/3774/3774299.png'
@@ -16,9 +17,20 @@ const STEPS = [
 ]
 
 const CURRENT_STEP = 6
+const AUTO_REDIRECT_SECONDS = 20 // 20 seconds baad automatically reset aur redirect hoga
 
 export default function AppointmentConfirmedScreen({ navigation, route }) {
   const { department, doctor, bookingDetails, bookingData } = route.params || {}
+  const { resetPatientFlow } = usePatient()
+
+  // ─── Auto Reset & Redirect Timer ────────────────────────────
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      handleFinish()
+    }, AUTO_REDIRECT_SECONDS * 1000)
+
+    return () => clearTimeout(timer) // Cleanup on unmount
+  }, [])
 
   // ─── Extract Booking Details from API Response ──────────────
   const opdInfo = bookingDetails?.data || bookingDetails || bookingData?.data || bookingData || {}
@@ -53,7 +65,12 @@ export default function AppointmentConfirmedScreen({ navigation, route }) {
 
   // ─── Handlers ─────────────────────────────────────────────
   const handleFinish = () => {
-    navigation.navigate('Welcome')
+    resetPatientFlow()
+    // Navigation stack reset taaki back button dabane par confirmation par wapas na aaye
+    navigation.reset({
+      index: 0,
+      routes: [{ name: 'Welcome' }],
+    })
   }
 
   const handlePrint = () => {
@@ -74,7 +91,7 @@ export default function AppointmentConfirmedScreen({ navigation, route }) {
       {/* ── HEADER ── */}
       <View style={styles.header}>
         <View style={styles.headerLeft}>
-          <Pressable style={styles.backButton} onPress={() => navigation.goBack()}>
+          <Pressable style={styles.backButton} onPress={handleFinish}>
             <Image source={require('../assets/back-arrow.png')} style={styles.backIcon} resizeMode="contain" />
           </Pressable>
         </View>
@@ -253,7 +270,7 @@ export default function AppointmentConfirmedScreen({ navigation, route }) {
 
           {/* ── Bottom Row ── */}
           <View style={styles.bottomRow}>
-            <Pressable onPress={() => navigation.navigate('Welcome')}>
+            <Pressable onPress={handleFinish}>
               <Text style={styles.cancelText}>✕ Cancel Registration</Text>
             </Pressable>
 
