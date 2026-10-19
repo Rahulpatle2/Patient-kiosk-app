@@ -347,7 +347,7 @@ const styles = StyleSheet.create({
   inputBoxNum: {
     fontSize: 30,
     fontWeight: '500',
-    letterSpacing: '20%',
+    letterSpacing: 0.2,
     color: '#000000',
   },
   callIcon: {

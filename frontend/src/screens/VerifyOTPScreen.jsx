@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { usePatient } from '../context/PatientContext'
 import { sendOtp, verifyOtp } from '../api/patientApi'
 
+
 const OTP_LENGTH = 6
 const TIMER_SECONDS = 30
 
@@ -55,6 +56,7 @@ export default function VerifyOTPScreen({ navigation, route }) {
     try {
       await verifyOtp(mobile, enteredOtp)
       navigation.navigate('PatientInfo')
+      // navigation.navigate('FormFillOptions')
     } catch (error) {
       setErrorMsg(error.response?.data?.message || 'Invalid OTP. Please try again.')
       setOtp(['', '', '', '', '', ''])

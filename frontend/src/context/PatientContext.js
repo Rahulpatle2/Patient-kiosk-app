@@ -10,7 +10,7 @@ export const PatientProvider = ({ children }) => {
   const [department, setDepartment] = useState(null);
   const [doctor, setDoctor] = useState(null);
   const [tokenNo, setTokenNo] = useState(null);
-
+  const [encounterId, setEncounterId] = useState(null)
  
   const resetPatientFlow = () => {
     setMobile(null);
@@ -19,6 +19,7 @@ export const PatientProvider = ({ children }) => {
     setDepartment(null);
     setDoctor(null);
     setTokenNo(null);
+    setEncounterId(null)
     setPatientDetails([])
   };
 
@@ -32,6 +33,7 @@ export const PatientProvider = ({ children }) => {
         doctor, setDoctor,
         tokenNo, setTokenNo,
         patientDetails,setPatientDetails,
+        encounterId,setEncounterId,
         resetPatientFlow,
       }}
     >

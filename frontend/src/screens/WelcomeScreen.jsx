@@ -157,7 +157,7 @@ export default function WelcomeScreen({ navigation }) {
               styles.card,
               pressed && styles.cardPressed,
             ]}
-            onPress={() => navigation.navigate("VerifyMobile")}
+            onPress={() => navigation.navigate("ComingSoonScreen")}
           >
             <Image
               source={require("../assets/scan-qr-icon.png")}
@@ -346,7 +346,7 @@ const styles = StyleSheet.create({
     color: "#1E363F",
     width: "50%",
     lineHeight: "120%",
-    letterSpacing: "0%",
+    letterSpacing: 0,
     textAlign: "center",
   },
   subheading: {

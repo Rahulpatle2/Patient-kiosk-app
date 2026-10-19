@@ -38,8 +38,8 @@
     "register_new_patient_sub": "New Patient",
     "existing_patient": "Existing",
     "existing_patient_sub": "Patient",
-    "scan_qr": "Scan",
-    "scan_qr_sub": "Appointment QR"
+    "scan_qr": "Book",
+    "scan_qr_sub": "Appointment"
   },
 
   "verify_mobile": {
@@ -148,5 +148,35 @@
     "send_sms": "Send on SMS",
     "send_sms_sub": "Get details on your phone",
     "finish": "Finish — Return to Home"
-  }
+  },
+  "formFillOptions": {
+  "title": "How would you like to fill your details?",
+  "subtitle": "Choose an option to continue",
+  "scan_aadhaar": "Scan Aadhaar Card",
+  "scan_aadhaar_sub": "Auto-fill your details instantly",
+  "fill_manually": "Fill Manually",
+  "fill_manually_sub": "Enter your details yourself"
+},
+
+"scanAadhaar": {
+      "title": "Verify your Aadhaar",
+      "subtitle": "Enter your Aadhaar number, then scan the QR code on your card",
+      "step1_label": "Enter Aadhaar Number",
+      "step1_placeholder": "XXXX XXXX XXXX",
+      "digits_count": "{{count}}/12 digits",
+      "clear": "Clear",
+      "step2_label": "Scan Aadhaar QR",
+      "scan_qr": "Scan QR",
+      "scan_qr_sub": "Scan the QR code on your Aadhaar card",
+      "back": "Back",
+      "camera_hint": "Hold the Aadhaar QR code inside the frame",
+      "verifying": "Verifying your Aadhaar…",
+      "cancel": "Cancel",
+      "permission_denied": "Camera permission is needed to scan the QR code.",
+      "fail_title": "Verification failed",
+      "fail_counter": "We couldn't verify your Aadhaar. Please visit the counter for assistance.",
+      "fail_read": "We couldn't read the QR code. Please try again, or visit the counter.",
+      "try_again": "Try Again",
+      "go_to_start": "Back to Start"
+    }
 }

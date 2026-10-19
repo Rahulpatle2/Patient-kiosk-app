@@ -31,7 +31,7 @@ const STEPS = [
 const CURRENT_STEP = 5
 
 export default function SelectDoctorScreen({ navigation }) {
-  const { department, patientId, setDoctor } = usePatient()
+  const { department, patientId, setDoctor, setEncounterId } = usePatient()
   
   const [doctors, setDoctors] = useState([])
   const [loading, setLoading] = useState(true)
@@ -47,7 +47,7 @@ export default function SelectDoctorScreen({ navigation }) {
   console.log(department)
   console.log(department.specialty)
   console.log(doctors)
-
+  console.log('Current patientId in context:', patientId);
   // ─── Fetch Doctors List ─────────────────────────────────────
   useEffect(() => {
     const fetchDoctors = async () => {
@@ -111,11 +111,12 @@ export default function SelectDoctorScreen({ navigation }) {
     const response = await registerToDoctor(patientId, doctorName, deptName)
 
     if (response?.data?.success || response?.status === 200 || response?.status === 201) {
-      navigation.navigate('AppointmentConfirmed', {
-        department: deptName,
-        doctor: selected,
+      navigation.navigate('AdditionalInfo', {
+        // department: deptName,
+        // doctor: selected,
         bookingDetails: response.data,
       })
+      setEncounterId(response.data.opEncounterId)
     } else {
       Alert.alert('Booking Failed', response?.data?.message || 'Failed to complete registration')
     }

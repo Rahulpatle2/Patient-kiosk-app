@@ -4,11 +4,14 @@
   "main": "index.js",
   "dependencies": {
     "@expo-google-fonts/inter": "^0.4.2",
+    "@react-native-community/datetimepicker": "9.1.0",
     "@react-native-picker/picker": "^2.11.4",
     "@react-navigation/native": "^7.3.0",
     "@react-navigation/stack": "^7.10.1",
     "axios": "^1.19.0",
     "expo": "~56.0.9",
+    "expo-camera": "~56.0.8",
+    "expo-dev-client": "~56.0.27",
     "expo-font": "~56.0.5",
     "expo-status-bar": "~56.0.4",
     "i18next": "^26.3.6",
@@ -26,8 +29,8 @@
   },
   "scripts": {
     "start": "expo start",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
+    "android": "expo run:android",
+    "ios": "expo run:ios",
     "web": "expo start --web"
   },
   "private": true

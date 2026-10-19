@@ -1,4 +1,3 @@
-const { findByMrnAndMobile } = require('../models/patient.model');
 const otpService = require('../services/otp.service');
 const patientService = require('../services/patient.service');
 
@@ -26,6 +25,7 @@ exports.registerPatient = async (req, res, next) => {
   try {
     const patient = await patientService.registerPatient(req.body);
     res.status(201).json(patient);
+    console.log(patient)
   } catch (err) {
     next(err);
   }
