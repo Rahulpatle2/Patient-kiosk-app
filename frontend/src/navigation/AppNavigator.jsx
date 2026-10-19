@@ -12,10 +12,13 @@ import AppointmentConfirmedScreen from '../screens/AppointmentConfirmedScreen'
 import PatientLookupScreen from '../screens/PatientLookupScreen'
 import PatientProfileScreen from '../screens/PatientProfileScreen'
 import ComingSoonScreen from '../screens/ComingSoonScreen'
+<<<<<<< HEAD
 import QRTestScreen from '../screens/QRTestScreen';
 import FormFillOptionsScreen from '../screens/FormFillOptionsScreen'
 import ScanAadharScreen from '../screens/ScanAadharScreen'
 import Additionalinfoscreen from '../screens/Additionalinfoscreen'
+=======
+>>>>>>> 0ce7dee61646a7c22ce3b1e6d194005bb8f6af9d
 
 const Stack = createStackNavigator()
 
@@ -39,10 +42,13 @@ export default function AppNavigator() {
         <Stack.Screen name="PatientLookupScreen" component={PatientLookupScreen}/>
         <Stack.Screen name="PatientProfile" component={PatientProfileScreen} />
         <Stack.Screen name="ComingSoonScreen" component={ComingSoonScreen}/>
+<<<<<<< HEAD
         <Stack.Screen name="QRTest" component={QRTestScreen} />
         <Stack.Screen name="FormFillOptions" component={FormFillOptionsScreen} />
         <Stack.Screen name="ScanAadhar" component={ScanAadharScreen}/>
         <Stack.Screen name="AdditionalInfo" component={Additionalinfoscreen}/>
+=======
+>>>>>>> 0ce7dee61646a7c22ce3b1e6d194005bb8f6af9d
       </Stack.Navigator>
     </NavigationContainer>
   )

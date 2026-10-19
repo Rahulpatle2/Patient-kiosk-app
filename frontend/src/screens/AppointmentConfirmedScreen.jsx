@@ -20,12 +20,16 @@ const CURRENT_STEP = 6
 const AUTO_REDIRECT_SECONDS = 20 // 20 seconds baad automatically reset aur redirect hoga
 
 export default function AppointmentConfirmedScreen({ navigation, route }) {
+<<<<<<< HEAD
   const { bookingDetails } = route.params || {}
   const {doctor, department} = usePatient()
   console.log("doctor -->",doctor)
   console.log("bookingDetails -->",bookingDetails)
   // console.log("bookingData-->",bookingData)
   console.log("department-->",department)
+=======
+  const { department, doctor, bookingDetails, bookingData } = route.params || {}
+>>>>>>> 0ce7dee61646a7c22ce3b1e6d194005bb8f6af9d
   const { resetPatientFlow } = usePatient()
 
   // ─── Auto Reset & Redirect Timer ────────────────────────────

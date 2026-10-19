@@ -13,6 +13,7 @@
     },
     "plugins": [
       "expo-font",
+<<<<<<< HEAD
       "@react-native-community/datetimepicker",
       [
         "expo-camera",
@@ -24,5 +25,9 @@
     "android": {
       "package": "com.rahulpatle.kioskapp"
     }
+=======
+      "@react-native-community/datetimepicker"
+    ]
+>>>>>>> 0ce7dee61646a7c22ce3b1e6d194005bb8f6af9d
   }
 }
